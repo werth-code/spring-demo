@@ -2,6 +2,7 @@ package com.matthewwerth.demo.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity // An entity represents a table stored in a db. Every instance of an entity represents a row in the table.
 @Table // So, in our STUDENT TABLE we store ROWS of single STUDENT's
@@ -20,21 +21,20 @@ public class Student {
         private String name;
         private String email;
         private LocalDate dob;
+        @Transient
         private Integer age;
 
-        public Student(Long id, String name, String email, LocalDate dob, Integer age) {
+        public Student(Long id, String name, String email, LocalDate dob) {
             this.id = id;
             this.name = name;
             this.email = email;
             this.dob = dob;
-            this.age = age;
         }
 
-        public Student(String name, String email, LocalDate dob, Integer age) {
+        public Student(String name, String email, LocalDate dob) {
             this.name = name;
             this.email = email;
             this.dob = dob;
-            this.age = age;
         }
 
         public Student() {
@@ -73,7 +73,7 @@ public class Student {
         }
 
         public Integer getAge() {
-            return age;
+            return Period.between(this.dob, LocalDate.now()).getYears(); //Auto calculates how old - makes it dynamic.
         }
 
         public void setAge(Integer age) {

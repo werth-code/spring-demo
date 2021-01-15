@@ -18,16 +18,14 @@ public class StudentConfig {
             Student matt =  new Student(1L,
                     "Matt",
                     "matthewwerth@gmail.com",
-                    LocalDate.of(1987, Month.SEPTEMBER, 21),
-                    33);
+                    LocalDate.of(1987, Month.SEPTEMBER, 21));
 
             Student laurie =  new Student(
                     "Laurie",
                     "lauriewerth@gmail.com",
-                    LocalDate.of(1987, Month.NOVEMBER, 19),
-                    33);
+                    LocalDate.of(1987, Month.NOVEMBER, 19));
 
-            repository.saveAll(List.of(matt, laurie));
+            repository.saveAll(List.of(matt, laurie));  // saveAll(TAKES A LIST) saves all to database.
 
         };
     }
