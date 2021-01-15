@@ -1,9 +1,7 @@
 package com.matthewwerth.demo.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,7 +20,9 @@ public class StudentController {
     public List<Student> getStudent() {
         return studentService.getStudent();
     }
+
+    @PostMapping                      //// Here we want to request the body and map into a student..
+    public void registerNewStudent(@RequestBody Student student) {
+        studentService.addNewStudent(student);
+    }
 }
-
-
-// The goal is to go from CLIENT(IPHONE) -> API(GET, POST, PUT, DELETE) -> SERVICE -> DATA ACCESS -> DATABASE and then back.

@@ -25,7 +25,12 @@ public class StudentConfig {
                     "lauriewerth@gmail.com",
                     LocalDate.of(1987, Month.NOVEMBER, 19));
 
-            repository.saveAll(List.of(matt, laurie));  // saveAll(TAKES A LIST) saves all to database.
+            Student amanda =  new Student(
+                    "Amanda",
+                    "amanda_hilau@gmail.com",
+                    LocalDate.of(1984, Month.AUGUST, 9));
+
+            repository.saveAll(List.of(matt, laurie, amanda));  // saveAll(TAKES A LIST) saves all to database.
 
         };
     }
