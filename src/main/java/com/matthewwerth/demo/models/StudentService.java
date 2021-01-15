@@ -1,12 +1,13 @@
 package com.matthewwerth.demo.models;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-@Component                     //// Tells Spring that this is a bean, we need this for our @Autowired constructor in StudentController
+//@Component                     //// Tells Spring that this is a bean, we need this for our @Autowired constructor in StudentController
+@Service                         //// Same as @Component but more descriptive
 public class StudentService {
 
     public List<Student> getStudent() {
